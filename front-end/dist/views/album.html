@@ -1,0 +1,24 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="backgrounds">
+                    <img src="images/albumBack.jpg" height=100% width=100%>
+                </div>
+                <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">Album</li>
+                </ul>
+            </div>
+            <div class="col-xs-12">
+               <h2>Album</h2>
+               <hr>
+            </div>
+        </div>
+        <div class="row">
+        
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6" ng-repeat="photo in photos">
+                <img ng-src={{photo.image}} class="img-responsive" width="300" height="400">
+            </div>
+        </div>
+    </div>

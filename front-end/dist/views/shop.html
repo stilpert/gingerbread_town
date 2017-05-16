@@ -1,0 +1,43 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="backgrounds">
+                    <img src="images/shopBack.jpg" height=100% width=100%>
+                </div>
+                <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">Shop</li>
+                </ul>
+            </div>
+            <div class="col-xs-12">
+               <h2>Shop</h2>
+               <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- BEGIN PRODUCTS -->
+            <div class="col-md-3 col-sm-6" ng-repeat="product in products">
+                <span class="thumbnail">
+                    <a ui-sref="app.productdetail({id: product._id})">
+                        <img ng-src={{product.image}} alt="..." width="250" height="350">
+                    </a>   
+                    <h4>{{product.name}}</h4>
+                    <p>{{product.description}} </p>
+                    <hr class="line">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <h4 class="price">{{product.price/100 | currency}}</h4>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <button class="btn btn-success right" ng-click="addToCart(product._id)"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        
+
+    </div>

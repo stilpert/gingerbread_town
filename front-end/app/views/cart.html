@@ -1,0 +1,76 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="backgrounds">
+                    <img src="images/cartBack.jpg" height=100% width=100%>
+                </div>
+                <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">Favorites</li>
+                </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Cart</h3>
+               <hr>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in products">
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a ui-sref="app.productdetail({id: product._id})" class="thumbnail pull-left"><img  ng-src={{product.image}} style="width: 72px; height: 72px;"></a>
+                            <div class="media-body" style="padding:10px">
+                                <h4 class="media-heading"><a ui-sref="app.productdetail({id: product._id})">{{product.name}}</a></h4>
+                                <h5 class="media-heading">{{product.description}}</h5>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <form name="userForm">  
+                            <input type="text" ng-model="total" name='quantity' ng-model-options="{ getterSetter: true }" style="width: 30px;" />
+                        </form>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price/100 | currency}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{product.price/100 * total() | currency}}</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-danger" ng-click="deleteFromCart(product._id)">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3>$31.53</h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <td>
+                        <button type="button" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
